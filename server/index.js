@@ -17,7 +17,7 @@ require('dotenv').config();
 
 const port=process.env.PORT || 3000;
 
-moongoose.connect('mongodb+srv://j33my:PaRwgUhxbwzdV97b@passportauth.eki46.mongodb.net/nyumba_app?retryWrites=true&w=majority')
+moongoose.connect('*************')
 .then(result=>{
     app.listen(port,()=>console.log(`Server is running on port ${port}`))
 })
