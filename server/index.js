@@ -1,27 +1,24 @@
-const express =require('express');
-const moongoose =require('mongoose');
+const express = require('express');
+const mongoose = require('mongoose');
 
-const houses=require ('./routes/houses')
+const houses = require('./routes/houses');
 
-const app =express();
+const app = express();
 
 app.use(express.json());
 
-app.get('/',(req,res)=>{
-    res.send('Welcome to the house listing API')
+app.get('/', (req, res) => {
+    res.send('Welcome to the house listing API');
 });
 
-app.use('/api/houses',houses);
+app.use('/api/houses', houses);
 
 require('dotenv').config();
 
-const port=process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
-moongoose.connect('*************')
-.then(result=>{
-    app.listen(port,()=>console.log(`Server is running on port ${port}`))
-})
-.catch(err=>console.log(err))
-
-
-
+mongoose.connect('Mondob Connection String')
+    .then(result => {
+        app.listen(port, () => console.log(`Server is running on port ${port}`))
+    })
+    .catch(err => console.log(err))
